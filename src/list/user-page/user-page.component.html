@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+            <div class="card-title"><h4>Add User</h4></div>
+            <div class="card-body">
+                <form [formGroup]="userForm" (submit)="formSubmition()">
+                    <div>
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input class="form-control" type="text" formControlName="name" />
+                            <div class="help-block" *ngIf="isValid && formControls['name'].hasError('required')"> Name is required </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Age</label>
+                            <input class="form-control" type="number" formControlName="age" />
+                            <div class="help-block" *ngIf="isValid && formControls['age'].hasError('required')"> Age is required </div>
+                        </div>
+                        <br>
+                        <div class="form-group form-check">
+                            <label style="margin: 0 15px 0 0;">Gender </label>
+                            <input type="radio" value="male" formControlName="gender" >Male
+                            <input type="radio" value="female" formControlName="gender" >Female
+                            <div class="help-block" *ngIf="isValid && formControls['gender'].hasError('required')"> Gender is required </div>
+                        </div>
+                        <br>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" formControlName="verified" id="verified">
+                            <label class="form-check-label" for="verified">All the information are verified</label>
+                            <div class="help-block" *ngIf="isValid && formControls['verified'].hasError('required')"> Must be Checked </div>
+                          </div>
+                    </div>
+                    <div class="submit-btn">
+                        <button type="submit" class="btn btn-info">Save</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card-title"><h4>User Information</h4></div>
+            <div class="card-body">
+                <ng-container *ngIf="userList.length>0; else NoDataTemplate">
+                    <div class="row flex-row-reverse">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Search By Name" (keyup)="filterByName($event)" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let user of userList">
+                            <td>{{user.name}}</td>
+                            <td>{{user.age}}</td>
+                            <td style="text-transform: capitalize;" >{{user.gender}}</td>
+                            <td>                             
+                            <span (click)="deleteUser(user.id)">
+                                <img class="action-ico" src="../../assets/images/delete.png">
+                            </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </ng-container>
+                                
+                <ng-template #NoDataTemplate>
+                    <p class="no-data" >No Data Found!</p>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+</div>

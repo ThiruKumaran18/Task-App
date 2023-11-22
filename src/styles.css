@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.help-block{
+    font-size: 12px;
+    color: red;
+}
+.submit-btn{
+    text-align: center;
+    margin: 5px;
+}
+.btn{
+    margin: 5px;
+}
+.action-ico{
+    height: 25px !important;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.card-title{
+    margin: 10px;
+    border-bottom: 1px solid;
+}
+.no-data{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 700;
+    margin: 21px;
+}

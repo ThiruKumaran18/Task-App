@@ -1,0 +1,32 @@
+<div class="row task-container">
+    <h2>Task Details</h2>
+    <div class="col-md-5">
+        <table>
+            <thead>
+                <tr class="hdr">
+                    <th> <input type="checkbox" id="selectAll" (change)="selectAll()" /> </th>
+                    <th>Task Name</th>
+                    <th>Progress Bar</th>
+                    <th>Due Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of taskList">
+                    <td><input type="checkbox" (change)="selectOne(item.id)"  id="li_{{item.id}}"></td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <progress value="{{item.status}}" max="100"> {{item.status}}% </progress>
+                     </td>
+                    <td>{{item.due_date}}</td>
+                    <td>
+                        <span>
+                            <img class="action-ico" src="../../assets/images/edit.png">
+                            <img class="action-ico" src="../../assets/images/delete.png">
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
