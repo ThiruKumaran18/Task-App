@@ -10,7 +10,7 @@ table {
   .hdr, tr:nth-child(even) {background-color: #f2f2f2;}
 
 .task-container{
-    margin: 1rem;
+    margin: 2rem;
 }
 .w100{    
     width: 100%;
