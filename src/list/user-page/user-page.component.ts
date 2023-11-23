@@ -12,15 +12,19 @@ export class UserPageComponent {
   isValid : boolean = false;
 
   userList : any[] = [
-    {age: 26,gender: "female",id: 1,name: "Ragavi",verified: true},
-    {age: 35,gender: "female",id: 2,name: "Ram Prasath",verified: true},
+    {age: 26,gender: "Female",id: 1,name: "Ragavi",verified: true},
+    {age: 35,gender: "Male",id: 2,name: "Ram Prasath",verified: true},
+    {age: 81,gender: "Male",id: 3,name: "Martin Scorsese",verified: true},
+    {age: 44,gender: "Female",id: 4,name: "Sarah Godon",verified: true},
   ];
+  filteredList : any[] = [];
 
   constructor(public fb : FormBuilder,private toastr:ToastrService) {
     this.formData();
   }
 
   ngOnInit(): void {
+    this.filteredList = this.userList;
     
   }
 
@@ -39,15 +43,22 @@ export class UserPageComponent {
     if(this.userForm.valid) {
       const user = { ...this.userForm.value, id : this.userList.length+1 };
       this.userList.push(user);
-      this.toastr.success('User Add Successfully');
+      this.filteredList.push(user);
+      this.toastr.success('User Added Successfully');
       this.userForm.reset();
       this.isValid = false;
     }
   }
 
   filterByName(e:any) {
-    const searchterm = e.target.value.toLowerCase();
-    const data = this.userList.filter(e=>e.name.includes(searchterm));
+    const searchterm = e.target.value.toLowerCase().trim();
+    if(searchterm==''){ this.userList = this.filteredList;return;}
+    this.userList = this.filteredList.filter(o => {
+      return Object.keys(o).some(k => {
+        if(typeof o[k] === 'string') return o[k].toLowerCase().includes(searchterm);
+      });
+    }); 
+    // this.userList = this.filteredList.filter(e=>{ return e.name.toLowerCase().includes(searchterm); });
   }
   deleteUser(id:number) {
     this.userList = this.userList.filter(e => e.id!=id);

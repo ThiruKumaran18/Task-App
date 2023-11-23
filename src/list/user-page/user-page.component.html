@@ -41,14 +41,14 @@
       <div class="col-md-9">
         <div class="card-title"><h4>User Information</h4></div>
             <div class="card-body">
-                <ng-container *ngIf="userList.length>0; else NoDataTemplate">
-                    <div class="row flex-row-reverse">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Search By Name" (keyup)="filterByName($event)" type="text" />
-                            </div>
+                <div class="row flex-row-reverse">
+                    <div class="col-md-3 mt-10">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Search By Name, Gender" (keyup)="filterByName($event)" type="text" />
                         </div>
                     </div>
+                </div>
+                <ng-container *ngIf="userList.length>0; else NoDataTemplate">
                     <table class="table">
                         <thead>
                             <tr>

@@ -4,19 +4,24 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { ListRoutingModule } from './list-routing.module';
 import { UserPageComponent } from './user-page/user-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TimerComponent } from './timer/timer.component';
 
 
 
 @NgModule({
   declarations: [
     TaskListComponent,
-    UserPageComponent
+    UserPageComponent,
+    TimerComponent
   ],
   imports: [
     CommonModule,
     ListRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports : [TaskListComponent,
+    UserPageComponent,
+    TimerComponent]
 })
 export class ListModule { }

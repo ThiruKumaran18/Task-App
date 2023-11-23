@@ -12,3 +12,6 @@ table {
 .task-container{
     margin: 1rem;
 }
+.w100{    
+    width: 100%;
+}

@@ -1,0 +1,13 @@
+<div class="row mrg-2r">
+    <div class="card">
+        <div class="card-title"><h4>Stopwatch</h4></div>
+        <div class="card-body center">
+            <button type="button" (click)="start()" [disabled]="isStarted" class="btn btn-success">Start</button>
+            <button type="button" (click)="stop()" class="btn btn-danger">Stop</button>
+            <button type="button" (click)="resume()" class="btn btn-primary">Resume</button>
+            <button type="button" (click)="reset()" class="btn btn-secondary">Reset</button>
+            <br>
+            <p class="time" [ngStyle]="{'color':isStoped?'#ff0000':'#0000ff'}" >{{time}}</p>
+        </div>
+    </div>
+</div>

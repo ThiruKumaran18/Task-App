@@ -40,12 +40,12 @@ To install bootstrap
     3.add in style.css
     @import '~bootstrap/dist/css/bootstrap.css';
 
-To install bootstrap
+To install toaster
     1. npm i ngx-toaster
     2. add in angular.json
     "styles": [
         "node_modules/ngx-toastr/toastr.css",
-      ],
+    ],
 
 To install Jquery
     1. npm i @types/jquery

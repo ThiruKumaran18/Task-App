@@ -30,3 +30,9 @@ body {
     font-weight: 700;
     margin: 21px;
 }
+.mt-10{
+    margin-top: 10px !important;
+}
+.m2{
+    margin: 2rem;
+}

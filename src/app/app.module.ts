@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ListModule } from 'src/list/list.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,13 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ToastrModule.forRoot(),
+    TabsModule,
+    ListModule,
+    ToastrModule.forRoot({
+      timeOut : 1000,
+      closeButton : true,
+      easeTime : 400
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
