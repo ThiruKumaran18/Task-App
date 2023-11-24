@@ -34,7 +34,7 @@ export class UserPageComponent {
       'name' : ['' ,Validators.required],
       'age' : ['' ,Validators.required],
       'gender' : ['' ,Validators.required],
-      'verified' : ['' ,Validators.required],
+      'verified' : ['' ,Validators.requiredTrue],
     });
   }
 
@@ -43,7 +43,6 @@ export class UserPageComponent {
     if(this.userForm.valid) {
       const user = { ...this.userForm.value, id : this.userList.length+1 };
       this.userList.push(user);
-      this.filteredList.push(user);
       this.toastr.success('User Added Successfully');
       this.userForm.reset();
       this.isValid = false;
@@ -62,5 +61,6 @@ export class UserPageComponent {
   }
   deleteUser(id:number) {
     this.userList = this.userList.filter(e => e.id!=id);
+    this.filteredList = this.userList;
   }
 }
